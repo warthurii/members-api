@@ -1,7 +1,9 @@
 package models
 
+import "github.com/google/uuid"
+
 type Member struct {
-	Id			string	`json:"id" gorm:"primaryKey"` 
+	Id			uuid.UUID	`json:"id" gorm:"primaryKey"` 
 	LastName	string `json:"lastName"`
 	FirstName	string `json:"firstName"`
 	Email 		string `json:"email"`
