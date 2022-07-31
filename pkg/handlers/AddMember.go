@@ -16,8 +16,6 @@ func (h handler) AddMember(w http.ResponseWriter, r *http.Request) {
     // Read to request body
     defer r.Body.Close()
     body, err := ioutil.ReadAll(r.Body)
-
-	
     if err != nil {
 		log.Fatalln(err)
     }
@@ -28,8 +26,6 @@ func (h handler) AddMember(w http.ResponseWriter, r *http.Request) {
 	//Creatr UUID
 	Id := uuid.New()
 	member.Id = Id;
-
-	fmt.Println(member)
 	
     //Append to the Members table
     if result := h.DB.Create(&member); result.Error != nil {
