@@ -14,11 +14,11 @@ func (h handler) DeleteMemberByName(w http.ResponseWriter, r *http.Request) {
     //Get names from request url
     params := mux.Vars(r)
     first := params["firstName"]
-    last := params["lastName"]
+    lst := params["lastName"]
     
     var member models.Member
     member.FirstName = first
-    member.LastName = last
+    member.LastName = lst
 
     //Delete based on name
     if result := h.DB.First(&member, member); result.Error != nil {
