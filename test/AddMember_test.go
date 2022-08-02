@@ -55,7 +55,7 @@ func Test_AddMember_Success(t *testing.T) {
 	//**
 	//** Validation
 	//**
-	if status := rr.Code; status != http.StatusOK {
+	if status := rr.Code; status != http.StatusOK && status != http.StatusCreated {
         t.Errorf("handler returned wrong status code: got %v want %v",
             status, http.StatusOK)
     }

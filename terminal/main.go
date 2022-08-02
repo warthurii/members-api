@@ -15,9 +15,12 @@ func main() {
     h := handlers.New(DB)
     router := mux.NewRouter()
 
-    // Here we'll define our api endpoints
+    //***************
+	//** Endpoints **
+	//***************
 	router.HandleFunc("/members", handlers.GetAllMembers).Methods(http.MethodGet)
 	router.HandleFunc("/member", h.AddMember).Methods(http.MethodPost)
+	router.HandleFunc("/member/", h.DeleteMemberByName).Methods(http.MethodDelete).Queries("lastName", "{lastName}", "firstName", "{firstName}")
 
     log.Println("API is running!")
     http.ListenAndServe(":4000", router)

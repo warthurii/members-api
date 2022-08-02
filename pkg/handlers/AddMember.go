@@ -7,9 +7,9 @@ import (
 	"log"
 	"net/http"
 
-	"github.com/google/uuid"
-
 	"members-api/pkg/models"
+
+	"github.com/google/uuid"
 )
 
 func (h handler) AddMember(w http.ResponseWriter, r *http.Request) {
